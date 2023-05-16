@@ -1,0 +1,16 @@
+# Criar logs
+mkdir -p /etc/opt/kaspersky/klnagent/1103/1.0.0.0/Debug
+echo -n 4 > /etc/opt/kaspersky/klnagent/1103/1.0.0.0/Debug/TraceLevel
+echo -n /opt/kaspersky/klnagent64/sbin > /etc/opt/kaspersky/klnagent/1103/1.0.0.0/Debug/TraceDir
+/etc/init.d/klnagent64 restart
+
+# Ver logs
+tail -f /opt/kaspersky/klnagent64/sbin/$klnagent-1103.log
+
+# Para logs
+rm -rf /etc/opt/kaspersky/klnagent/1103/1.0.0.0/Debug
+/etc/init.d/klnagent64 restart
+
+# Para e iniciar antivirus
+/etc/init.d/klnagent64 stop/start/restart
+
